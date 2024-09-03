@@ -1,4 +1,4 @@
-package astutils
+package astw
 
 import (
 	"bytes"
@@ -8,7 +8,7 @@ import (
 	"io"
 )
 
-func ParseFile(reader io.Reader) (*ast.File, error) {
+func ParseReader(reader io.Reader) (*ast.File, error) {
 	buffer := bytes.Buffer{}
 	_, err := io.Copy(&buffer, reader)
 	fileSet := token.NewFileSet()
