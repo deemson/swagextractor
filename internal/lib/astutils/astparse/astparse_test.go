@@ -1,13 +1,12 @@
-package astw_test
+package astparse_test
 
 import (
-	"github.com/deemson/swagextractor/internal/lib/astutils/astw"
+	"github.com/deemson/swagextractor/internal/lib/astutils/astparse"
 	"github.com/stretchr/testify/require"
-	"strings"
 	"testing"
 )
 
-func TestParseReader(t *testing.T) {
+func TestReader(t *testing.T) {
 	testCases := map[string]struct {
 		lines []string
 		err   string
@@ -51,7 +50,7 @@ func TestParseReader(t *testing.T) {
 	}
 	for name, testCase := range testCases {
 		t.Run(name, func(t *testing.T) {
-			_, err := astw.ParseReader(strings.NewReader(strings.Join(testCase.lines, "\n")))
+			_, err := astparse.Lines(testCase.lines)
 			if testCase.err == "" {
 				require.NoError(t, err)
 			} else {

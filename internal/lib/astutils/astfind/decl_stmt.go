@@ -10,6 +10,7 @@ func DeclStmt(node ast.Node, varName string) {
 		if childNode == node {
 			return true
 		}
+		fmt.Printf("%#v\n", childNode)
 		declStmtNode, ok := childNode.(*ast.DeclStmt)
 		if ok {
 			fmt.Printf("%#v\n", declStmtNode.Decl)
